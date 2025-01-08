@@ -44,7 +44,7 @@ export default function Landing(){
                         onClick={async(e)=>{
                             e.preventDefault();
                             try{
-                              const res = await axios.post('http://localhost:3000/signin', {
+                              const res = await axios.post('https://two-factor-auth-ed42.onrender.com/signin', {
                                 
                                     username,
                                     password

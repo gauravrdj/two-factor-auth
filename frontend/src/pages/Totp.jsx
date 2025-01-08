@@ -28,7 +28,7 @@ const navigate = useNavigate();
     e.preventDefault();
     const totp = Number(otp.join(""));
     try{
-    const res = await axios.post('http://localhost:3000/api/verify/totp', {
+    const res = await axios.post('https://two-factor-auth-ed42.onrender.com/api/verify/totp', {
         token : totp
     },
   {
@@ -78,7 +78,7 @@ catch(e){
             type="button"
             // onClick={handleLostAccess}
               onClick={async ()=>{
-                const res = await axios.get('http://localhost:3000/forget', {
+                const res = await axios.get('https://two-factor-auth-ed42.onrender.com/forget', {
                   headers:{
                     Authorization: localStorage.getItem('token')
                   }

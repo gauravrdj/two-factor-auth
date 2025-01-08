@@ -11,7 +11,7 @@ const QrCodeComponent = () => {
   useEffect(() => {
     console.log(localStorage.getItem("token"));
     axios
-      .get("http://localhost:3000/api/enable/totp", {
+      .get("https://two-factor-auth-ed42.onrender.com/api/enable/totp", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
