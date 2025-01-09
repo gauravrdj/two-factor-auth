@@ -5,6 +5,7 @@ import {toast} from 'sonner'
 export default function Landing(){
     const [username, setUsername] = useState("");
     const [ password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     return (
         <div className="flex items-center justify-center h-screen bg-gray-100">
@@ -43,6 +44,7 @@ export default function Landing(){
                         // type="submit" 
                         onClick={async(e)=>{
                             e.preventDefault();
+                            setLoading(true);
                             try{
                               const res = await axios.post('https://two-factor-auth-ed42.onrender.com/signin', {
                                 
@@ -68,10 +70,11 @@ export default function Landing(){
                                 toast.error('Something went wrong');
                                 //  console.log('Error while creating user')
                             }
+                            setLoading(false);
                             
                         }}
                         className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                        Login
+                       {loading===true ? "Loading..." :  "Login"}
                     </button>
                     <div className="text-center mt-4">
                         <a href="#" className="text-sm text-blue-500 hover:underline">Forgot Password?</a>
